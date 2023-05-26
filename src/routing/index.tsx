@@ -5,7 +5,7 @@ function WebRouting() {
         <Routes>
             <Route path="/" element={<div>
                 I'm Home page
-                <Button variant="contained">click me</Button>
+                <Button variant="outlined">click me</Button>
 
             </div>} />
             <Route path="/about" element={<div>I'm about page</div>} />

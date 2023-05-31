@@ -8,11 +8,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import styles from "./index.module.css"
 
-const navlinks = [
-    {
-        to: "/",
-        title: "Əsas səhifə"
-    },
+export const navlinks = [
     {
         to: "/about",
         title: "Haqqımızda"
@@ -103,7 +99,10 @@ const Header = () => {
                                 open={open}
                                 onClose={handleClose}
                             >
-                                {navlinks.map(({ title, to }) => (
+                                {[{
+                                    to: "/",
+                                    title: "Əsas səhifə"
+                                }, ...navlinks].map(({ title, to }) => (
                                     <MenuItem key={to} onClick={() => navigate(to)}>
                                         <Typography textAlign="center">{title}</Typography>
                                     </MenuItem>
@@ -121,7 +120,10 @@ const Header = () => {
                         </Box>
                         <Stack flexDirection="row" gap={4} sx={{ display: { xs: 'none', md: 'flex' } }}>
                             {
-                                navlinks.map(({ title, to }) => {
+                                [{
+                                    to: "/",
+                                    title: "Əsas səhifə"
+                                }, ...navlinks].map(({ title, to }) => {
                                     return (
                                         <a key={to} href={to}>
                                             {title}

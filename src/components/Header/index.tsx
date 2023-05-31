@@ -6,6 +6,7 @@ import { ReactComponent as MegaLogo } from "../../assets/logo.svg"
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import styles from "./index.module.css"
 
 const navlinks = [
     {
@@ -39,15 +40,32 @@ const languages = [
 ]
 
 const Header = () => {
-    const [menuOpen, setMenuOpen] = useState(false)
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+
+    const handleClick = (event: any) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+
     const navigate = useNavigate()
 
     return (
         <>
             <Box sx={{ backgroundColor: 'orange' }}>
                 <Container>
-                    <Stack py={1} flexDirection="row" justifyContent="space-between">
-                        <Typography>+994(12) 123 45 67  |  Fətəli Xan Xoyski 111A, Bakı Azərbaycan</Typography>
+                    <Stack py={1} flexDirection={{ xs: "column", sm: "row" }} className={styles.ali_12345}>
+                        <Stack gap={2} flexDirection={{ xs: "column", sm: "row" }} textAlign="center">
+                            <Typography>+994(12) 123 45 67</Typography>
+                            <Typography
+                                sx={{
+                                    borderLeftWidth: { xs: 0, sm: 2 }
+                                }}
+                                className={styles.borderLeft} component="span" display={{ xs: "block", sm: 'inline' }}>Fətəli Xan Xoyski 111A, Bakı Azərbaycan</Typography>
+                        </Stack>
                         <Stack flexDirection="row" gap={1}>
                             <a href="https://twitter.com">
                                 <TwitterIcon />
@@ -71,31 +89,35 @@ const Header = () => {
                         }}>
                             <IconButton
                                 size="large"
-                                onClick={() => setMenuOpen(true)}
+                                onClick={handleClick}
+                            // onClick={(e)=>handleClick(e)}
                             >
                                 <MenuIcon />
                             </IconButton>
-                            {
-                                menuOpen && <Menu
-                                    open={menuOpen}
-                                    onClose={() => setMenuOpen(false)}
-                                >
-                                    {navlinks.map(({ title, to }) => (
-                                        <MenuItem key={to} onClick={() => navigate(to)}>
-                                            <Typography textAlign="center">{title}</Typography>
-                                        </MenuItem>
-                                    ))}
-                                    {
-                                        languages.map((lang) => {
-                                            return (
-                                                <MenuItem key={lang} onClick={() => { }}>
-                                                    <Typography textAlign="center">{lang}</Typography>
-                                                </MenuItem>
-                                            )
-                                        })
-                                    }
-                                </Menu>
-                            }
+                            <Menu
+                                anchorEl={anchorEl}
+                                anchorOrigin={{
+                                    horizontal: 'right',
+                                    vertical: 'bottom'
+                                }}
+                                open={open}
+                                onClose={handleClose}
+                            >
+                                {navlinks.map(({ title, to }) => (
+                                    <MenuItem key={to} onClick={() => navigate(to)}>
+                                        <Typography textAlign="center">{title}</Typography>
+                                    </MenuItem>
+                                ))}
+                                {
+                                    languages.map((lang) => {
+                                        return (
+                                            <MenuItem key={lang} onClick={() => { }}>
+                                                <Typography textAlign="center">{lang}</Typography>
+                                            </MenuItem>
+                                        )
+                                    })
+                                }
+                            </Menu>
                         </Box>
                         <Stack flexDirection="row" gap={4} sx={{ display: { xs: 'none', md: 'flex' } }}>
                             {
@@ -113,7 +135,7 @@ const Header = () => {
                         {
                             languages.map((lang) => {
                                 return (
-                                    <Typography fontWeight="bold">{lang}</Typography>
+                                    <Typography key={lang} fontWeight="bold">{lang}</Typography>
                                 )
                             })
                         }

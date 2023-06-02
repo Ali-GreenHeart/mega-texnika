@@ -75,7 +75,32 @@ const HomePage = ({ }) => {
                     }
                 </Grid>
 
+                <Grid container my={10}>
+                    <Grid sx={{ display: { xs: 'none', md: 'unset' } }} justifyContent="center" container alignSelf="flex-end" item xs={0} md={4} lg={5}>
+                        <Paper
+                            sx={{
+                                p: 1,
+                                width: "75%",
+                                height: "90%"
+                            }}
+                            elevation={5}>
+                            <img src="/fork_kitay.png" alt="" />
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} md={8} lg={7}>
+                        <Paper sx={{ p: 1, mb: 2 }} elevation={5}>
+                            <img src="/ejdahais.png" alt="" />
+                        </Paper>
+                        <Box pl={4}>
+                            <Typography py={4} component="h1" fontWeight="bold" variant="h3">Mega Texnika-da sınaqdan keçirilmiş texnikalar</Typography>
+                            <Typography>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</Typography>
+                            <Button sx={{ mt: 4 }}>Haqqımızda</Button>
+                        </Box>
+                    </Grid>
+                </Grid>
+
                 <Typography fontWeight="bold" variant="h5">Texnikalar</Typography>
+
             </Container>
         </PageContainer >
     )

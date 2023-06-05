@@ -15,7 +15,7 @@ interface Props {
 
 const TexnikaCard = ({ imgFolder, texnika: { id, img, title, year, priceForDay, priceForMonth } }: Props) => {
     return (
-        <Grid sx={{ minWidth: 250 }} key={id} item xs={6} md={4} lg={3}>
+        <Grid sx={{ minWidth: 250, width: '100%', maxWidth: '600px' }} key={id} item xs={6} md={4} lg={3}>
             <Paper elevation={5}>
                 <img src={imgFolder + img} alt={title} />
                 <Stack px={2} py={1}>

@@ -1,5 +1,8 @@
 import { Box, Button, Container, Grid, Paper, Typography } from "@mui/material"
 import PageContainer from "../../components/PageContainer"
+import { texnikalar } from "../Texnikalar"
+import TexnikaCard from "../../components/TexnikaCard"
+import Carousel from "../../components/Carousel"
 
 const categories = [
     {
@@ -34,6 +37,15 @@ const categories = [
         img: "pompa.png",
         title: 'Pompa'
     },
+]
+
+const brands = [
+    "brand1.png",
+    "brand2.png",
+    "brand3.png",
+    "brand4.png",
+    "brand5.png",
+    "brand6.png",
 ]
 
 const HomePage = ({ }) => {
@@ -100,7 +112,50 @@ const HomePage = ({ }) => {
                 </Grid>
 
                 <Typography fontWeight="bold" variant="h5">Texnikalar</Typography>
+                <Box
+                    sx={{
+                        "& img": {
+                            display: { xs: "none", sm: "inline" },
+                        },
+                        "& .carousel_container_home": {
+                            py: "20px",
+                            my: "40px",
+                            "& > ul": {
+                                gap: 4
+                            }
+                        }
+                    }}
+                >
+                    <Carousel className="carousel_container_home">
+                        {
+                            texnikalar.slice(0, 4).map((texnika) => <TexnikaCard key={texnika.id} imgFolder="/texnikalar/" texnika={texnika} />)
+                        }
+                    </Carousel>
+                </Box>
+                <Box textAlign="center">
+                    <Button sx={{ my: 5, px: 7, py: 1 }}>Hamısına bax</Button>
+                </Box>
 
+                <Typography fontWeight="bold" variant="h5" textAlign="center" my={5}>Markalar</Typography>
+                <Carousel
+                    desktopItemsCount={6}
+                    autoPlay
+                    showArrows={false}
+                >
+                    {
+                        brands.map((brand) => {
+                            return <Box sx={{
+                                maxWidth: 150,
+                                "& img": {
+                                    objectFit: 'contain',
+                                    width: 'fit-content'
+                                }
+                            }}>
+                                <img key={brand} src={`/brands/${brand}`} />
+                            </Box>
+                        })
+                    }
+                </Carousel>
             </Container>
         </PageContainer >
     )

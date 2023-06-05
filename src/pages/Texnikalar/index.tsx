@@ -9,7 +9,7 @@ import PageContainer from "../../components/PageContainer";
 import TexnikaCard from "../../components/TexnikaCard";
 import ITexnika from "../../types/Texnika";
 
-const texnikalar: ITexnika[] = [
+export const texnikalar: ITexnika[] = [
   {
     id: 0,
     img: "ekskavator.png",

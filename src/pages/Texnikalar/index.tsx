@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Container,
   Grid,
@@ -12,75 +13,67 @@ import PageContainer from "../../components/PageContainer";
 const texnikalar = [
   {
     id: 0,
-    title: "Məhsulun adı",
     img: "ekskavator.png",
-    type: "Ekskavator",
+    title: "Ekskavator",
     year: "2022",
-    priceForMonth: "1000 AZN/ay",
-    priceForDay: "100 AZN/gün",
+    priceForMonth: 1000,
+    priceForDay: 100,
   },
   {
     id: 1,
-    title: "Məhsulun adı",
     img: "yukleyici.png",
-    type: "Ekskavator yukleyici",
+    title: "Ekskavator yukleyici",
     year: "2022",
-    priceForMonth: "1000 AZN/ay",
-    priceForDay: "100 AZN/gün",
+    priceForMonth: 1000,
+    priceForDay: 100,
   },
   {
     id: 2,
-    title: "Məhsulun adı",
     img: "avtokran.png",
-    type: "Avtokran",
+    title: "Avtokran",
     year: "2022",
-    priceForMonth: "1000 AZN/ay",
-    priceForDay: "100 AZN/gün",
+    priceForMonth: 1000,
+    priceForDay: 100,
   },
   {
     id: 3,
-    title: "Məhsulun adı",
     img: "forklift.png",
-    type: "Forkliftlər",
+    title: "Forkliftlər",
     year: "2022",
-    priceForMonth: "1000 AZN/ay",
-    priceForDay: "100 AZN/gün",
+    priceForMonth: 1000,
+    priceForDay: 100,
   },
   {
     id: 4,
-    title: "Məhsulun adı",
     img: "ekskavator.png",
-    type: "Ekskavator",
+    title: "Ekskavator",
     year: "2022",
-    priceForMonth: "1000 AZN/ay",
-    priceForDay: "100 AZN/gün",
+    priceForMonth: 1000,
+    priceForDay: 100,
   },
   {
     id: 5,
-    title: "Məhsulun adı",
     img: "yukleyici.png",
-    type: "Ekskavator yukleyici",
+    title: "Ekskavator yukleyici",
     year: "2022",
-    priceForMonth: "1000 AZN/ay",
-    priceForDay: "100 AZN/gün",
+    priceForMonth: 1000,
+    priceForDay: 100,
   },
   {
     id: 6,
-    title: "Məhsulun adı",
     img: "avtokran.png",
-    type: "Avtokran",
+    title: "Avtokran",
     year: "2022",
-    priceForMonth: "1000 AZN/ay",
-    priceForDay: "100 AZN/gün",
+    priceForMonth: 1000,
+    priceForDay: 100,
   },
   {
     id: 7,
-    title: "Məhsulun adı",
     img: "forklift.png",
-    type: "Forkliftlər",
+    title: "Forkliftlər",
     year: "2022",
-    priceForMonth: "1000 AZN/ay",
-    priceForDay: "100 AZN/gün",
+    priceForMonth: 1000,
+    priceForDay: 100,
   },
 ];
 
@@ -104,49 +97,47 @@ const Texnikalar = () => {
           container
           spacing={3}
           sx={{
+            justifyContent: "center",
+            flexWrap: "wrap",
+            px: 2,
             "& img": {
               display: { xs: "none", sm: "inline" },
             },
           }}
         >
           {texnikalar.map(
-            ({ img, title, type, year, priceForMonth, priceForDay, id }) => {
+            ({ img, title, year, priceForMonth, priceForDay, id }) => {
               return (
-                <Grid key={id} item xs={6} md={4} lg={3}>
+                <Grid sx={{ minWidth: 250 }} key={id} item xs={6} md={4} lg={3}>
                   <Paper elevation={5}>
-                    <img src={`/texnikalar/${img}`} alt={type} />
-                    <Stack p="2px 0 2px 20px">
+                    <img src={`/texnikalar/${img}`} alt={title} />
+                    <Stack px={2} py={1}>
                       <Typography
                         sx={{ color: "#596C72" }}
                         component="h3"
                         fontWeight="bold"
                       >
-                        {title}
+                        Məhsulun adı
                       </Typography>
                       <Typography sx={{ color: "#686868" }} component="h4">
-                        {type}
+                        {title}
                       </Typography>
                       <Typography sx={{ color: "#B0ADAD" }} component="h4">
                         {year}
                       </Typography>
                     </Stack>
-                    <Stack p="2px 20px 2px 0" alignItems="flex-end">
+                    <Stack px={2} alignItems="flex-end">
                       <Typography
                         sx={{ color: "#FFC01F", fontWeight: "bold" }}
                         component="h2"
                       >
-                        {priceForMonth}
-                      </Typography>
-                      <Typography
-                        sx={{ color: "#FFC01F", fontWeight: "bold" }}
-                        component="h2"
-                      >
-                        {priceForDay}
+                        {priceForMonth} azn/ay <br />
+                        {priceForDay} azn/gun
                       </Typography>
                     </Stack>
-                    <Stack>
-                      <Button sx={{ margin: 3 }}>İcarə et</Button>
-                    </Stack>
+                    <Box px={3} py={2} textAlign="center">
+                      <Button fullWidth>İcarə et</Button>
+                    </Box>
                   </Paper>
                 </Grid>
               );

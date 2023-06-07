@@ -26,7 +26,7 @@ export const navlinks = [
         title: "Blog"
     },
     {
-        to: "/contact",
+        to: "/Elaqe",
         title: "Əlaqə"
     },
 ]

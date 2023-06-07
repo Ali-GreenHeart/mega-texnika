@@ -12,3 +12,18 @@ img {
 .react-multiple-carousel__arrow:hover {
     background-color: rgba(255, 192, 31, 1);
 }
+input{
+    width: 100%;
+    padding:10px;
+    border-radius: 10px ;
+    border-color: rgb(138, 138, 138);
+}
+.Box-input{
+    width: 100%;
+}
+textarea{
+    resize: none;
+    width: 100%;
+    border-radius: 10px ;
+    padding: 10px;
+}

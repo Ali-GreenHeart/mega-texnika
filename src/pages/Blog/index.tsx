@@ -5,48 +5,56 @@ import "../../index.css";
 
 const news = [
   {
+    id: 1,
     img: "blogimg1.png",
     title: "Xəbərin adı",
     date: "12.04.2022",
   },
   {
+    id: 2,
     img: "blogimg2.png",
     title: "Xəbərin adı",
     date: "12.04.2022",
   },
   {
+    id: 3,
     img: "blogimg3.png",
     title: "Xəbərin adı",
     date: "12.04.2022",
   },
   {
+    id: 4,
     img: "blogimg4.png",
     title: "Xəbərin adı",
     date: "12.04.2022",
   },
   {
+    id: 5,
     img: "blogimg1.png",
     title: "Xəbərin adı",
     date: "12.04.2022",
   },
   {
+    id: 6,
     img: "blogimg2.png",
     title: "Xəbərin adı",
     date: "12.04.2022",
   },
   {
+    id: 7,
     img: "blogimg3.png",
     title: "Xəbərin adı",
     date: "12.04.2022",
   },
   {
+    id: 8,
     img: "blogimg4.png",
     title: "Xəbərin adı",
     date: "12.04.2022",
   },
 ];
 
-const BlogPage = ({}) => {
+const BlogPage = ({ }) => {
   return (
     <PageContainer>
       <Container>
@@ -82,15 +90,17 @@ const BlogPage = ({}) => {
             },
           }}
         >
-          {news.map(({ img, title, date }) => {
+          {news.map(({ id, img, title, date }) => {
             return (
               <Grid
                 sx={{ minWidth: 250 }}
-                key={title}
+                key={id}
                 item
                 xs={6}
                 md={4}
                 lg={3}
+                component="a"
+                href={`/blog/${id}`}
               >
                 <Paper elevation={10}>
                   <img src={`/blog/${img}`} alt="" />

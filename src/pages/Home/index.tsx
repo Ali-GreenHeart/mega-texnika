@@ -56,7 +56,7 @@ const brands = [
   "brand6.png",
 ];
 
-const HomePage = ({}) => {
+const HomePage = ({ }) => {
   return (
     <PageContainer>
       <Container>
@@ -198,7 +198,7 @@ const HomePage = ({}) => {
           })}
         </Carousel>
       </Container>
-      <Box my={3} sx={{ backgroundColor: "#EFEFEF" }}>
+      <Box my='130px' sx={{ backgroundColor: "#EFEFEF" }}>
         <Container>
           <Stack flexDirection="row" justifyContent="space-between">
             <Stack margin={"20px 10px"}>
@@ -217,7 +217,7 @@ const HomePage = ({}) => {
               </Typography>
             </Stack>
             <Stack>
-              <img src="./_yukleyici.png" alt="yukleyici" />
+              <img style={{ position: "relative", top: -110 }} src="./_yukleyici.png" alt="yukleyici" />
             </Stack>
           </Stack>
         </Container>

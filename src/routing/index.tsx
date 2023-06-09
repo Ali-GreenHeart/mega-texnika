@@ -11,7 +11,7 @@ function WebRouting() {
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<div>I'm about page</div>} />
       <Route path="/texnikalar" element={<Texnikalar />} />
-      <Route path="/Elaqe" element={<Elaqe/>} />
+      <Route path="/contact" element={<Elaqe />} />
       <Route path="/blog" element={<BlogPage />} />
     </Routes>
   );

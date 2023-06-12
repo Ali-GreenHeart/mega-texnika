@@ -29,7 +29,15 @@ const theme = createTheme({
         MuiOutlinedInput: {
             styleOverrides: {
                 root: {
-                    borderRadius: 40
+                    borderRadius: 40,
+                    height: 40
+                }
+            }
+        },
+        MuiInputLabel: {
+            styleOverrides: {
+                root: {
+
                 }
             }
         }

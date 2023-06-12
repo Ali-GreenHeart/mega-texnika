@@ -266,7 +266,8 @@ const HomePage = ({ }) => {
               sx={{
                 "& img": {
                   top: -110,
-                  position: { xs: 'static', md: 'relative' }
+                  position: { xs: 'static', md: 'relative' },
+                  objectFit: 'contain'
                 }
               }}
             >

@@ -11,6 +11,7 @@ import PageContainer from "../../components/PageContainer";
 import { texnikalar } from "../Texnikalar";
 import TexnikaCard from "../../components/TexnikaCard";
 import Carousel from "../../components/Carousel";
+import HomeContactForm from "../../components/HomeContactForm";
 
 const categories = [
   {
@@ -87,7 +88,7 @@ const yenilikler = [
   },
 ];
 
-const HomePage = ({}) => {
+const HomePage = ({ }) => {
   return (
     <PageContainer>
       <Container>
@@ -215,6 +216,7 @@ const HomePage = ({}) => {
           {brands.map((brand) => {
             return (
               <Box
+                key={brand}
                 sx={{
                   maxWidth: 150,
                   "& img": {
@@ -229,23 +231,22 @@ const HomePage = ({}) => {
           })}
         </Carousel>
       </Container>
-      {/* <Container>
-        <Stack>
+      <Container>
+        {/* <Stack>
           {yenilikler.map((yenilik) => {
             return (
               <TexnikaCard
                 key={yenilik.id}
                 imgFolder="/yenilikler/"
-              
               />
             );
           })}
-        </Stack>
-      </Container> */}
+        </Stack> */}
+      </Container>
       <Box my="130px" sx={{ backgroundColor: "#EFEFEF" }}>
         <Container>
-          <Stack flexDirection="row" justifyContent="space-between">
-            <Stack margin={"20px 10px"}>
+          <Grid container my={7} spacing={2}>
+            <Grid item xs={12} md={6}>
               <Typography
                 sx={{ color: "#596C72", fontWeight: "bold" }}
                 component={"h1"}
@@ -259,15 +260,21 @@ const HomePage = ({}) => {
                 text ever since the 1500s, when an unknown printer took a galley
                 of type and scrambled
               </Typography>
-            </Stack>
-            <Stack>
+              <HomeContactForm />
+            </Grid>
+            <Grid item xs={12} md={6}
+              sx={{
+                "& img": {
+                  top: -110,
+                  position: { xs: 'static', md: 'relative' }
+                }
+              }}
+            >
               <img
-                style={{ position: "relative", top: -110 }}
                 src="./_yukleyici.png"
-                alt="yukleyici"
-              />
-            </Stack>
-          </Stack>
+                alt="yukleyici" />
+            </Grid>
+          </Grid>
         </Container>
       </Box>
 

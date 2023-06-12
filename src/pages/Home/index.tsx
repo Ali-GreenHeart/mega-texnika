@@ -56,7 +56,38 @@ const brands = [
   "brand6.png",
 ];
 
-const HomePage = ({ }) => {
+const yenilikler = [
+  {
+    id: 0,
+    img: "yeni1.png",
+    title: "Lorem Ipsum is simply dummy",
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
+    date: "01.04.2022",
+  },
+  {
+    id: 1,
+    img: "yeni2.png",
+    title: "Lorem Ipsum has been the industry's standard dummy text ever since",
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
+    date: "01.04.2022",
+  },
+  {
+    id: 2,
+    img: "yeni3.png",
+    title: "Lorem Ipsum is simply dummy",
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
+    date: "01.04.2022",
+  },
+  {
+    id: 3,
+    img: "yeni4.png",
+    title: "Lorem Ipsum is simply dummy",
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
+    date: "01.04.2022",
+  },
+];
+
+const HomePage = ({}) => {
   return (
     <PageContainer>
       <Container>
@@ -198,7 +229,20 @@ const HomePage = ({ }) => {
           })}
         </Carousel>
       </Container>
-      <Box my='130px' sx={{ backgroundColor: "#EFEFEF" }}>
+      {/* <Container>
+        <Stack>
+          {yenilikler.map((yenilik) => {
+            return (
+              <TexnikaCard
+                key={yenilik.id}
+                imgFolder="/yenilikler/"
+              
+              />
+            );
+          })}
+        </Stack>
+      </Container> */}
+      <Box my="130px" sx={{ backgroundColor: "#EFEFEF" }}>
         <Container>
           <Stack flexDirection="row" justifyContent="space-between">
             <Stack margin={"20px 10px"}>
@@ -217,7 +261,11 @@ const HomePage = ({ }) => {
               </Typography>
             </Stack>
             <Stack>
-              <img style={{ position: "relative", top: -110 }} src="./_yukleyici.png" alt="yukleyici" />
+              <img
+                style={{ position: "relative", top: -110 }}
+                src="./_yukleyici.png"
+                alt="yukleyici"
+              />
             </Stack>
           </Stack>
         </Container>
@@ -225,7 +273,7 @@ const HomePage = ({ }) => {
 
       <Container>
         <Stack
-          flexDirection={"row"}
+          flexDirection={{ xs: "column", md: "row" }}
           justifyContent={"space-between"}
           alignItems={"center"}
           gap={"10px"}
@@ -236,6 +284,7 @@ const HomePage = ({ }) => {
               sx={{ color: "#596C72", fontWeight: "bold" }}
               component={"h1"}
               variant="h4"
+              textAlign={{ xs: "center", md: "left" }}
             >
               Niyə bizi seçməlisiniz
             </Typography>
@@ -251,7 +300,14 @@ const HomePage = ({ }) => {
             </Typography>
           </Stack>
           <Stack maxHeight={"300px"} maxWidth={"400px"}>
-            <img src="./yol_temizleyen.png" alt="yol temizleyen" />
+            <Paper
+              sx={{
+                p: 2,
+              }}
+              elevation={6}
+            >
+              <img src="./yol_temizleyen.png" alt="yol temizleyen" />
+            </Paper>
           </Stack>
         </Stack>
       </Container>

@@ -6,14 +6,17 @@ import CssBaseline from '@mui/material/CssBaseline'
 import "./index.css"
 import { ThemeProvider } from '@mui/material'
 import theme from "./theme.jsx"
+import I18nContextComponent from './context/I18nContext.tsx'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ThemeProvider>
+    <I18nContextComponent>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </I18nContextComponent>
   </React.StrictMode>,
 )

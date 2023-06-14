@@ -12,14 +12,17 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { ReactComponent as MegaLogo } from "../../assets/logo.svg";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import styles from "./index.module.css";
+import { I18nContext } from "../../context/I18nContext";
+import { useTranslation } from "react-i18next";
+
 
 export const navlinks = [
   {
     to: "/about",
-    title: "Haqqımızda",
+    title: 'Haqqimizda',
   },
   {
     to: "/texnikalar",
@@ -42,6 +45,31 @@ export const navlinks = [
 const languages = ["AZ", "EN", "RU"];
 
 const Header = () => {
+  const { t } = useTranslation()
+  const navlinks = [
+    {
+      to: "/about",
+      title: t('nav.about'),
+    },
+    {
+      to: "/texnikalar",
+      title: t('nav.technics'),
+    },
+    {
+      to: "/icare",
+      title: "İcarə şərtləri",
+    },
+    {
+      to: "/blog",
+      title: "Blog",
+    },
+    {
+      to: "/contact",
+      title: "Əlaqə",
+    },
+  ];
+
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -53,6 +81,8 @@ const Header = () => {
   };
 
   const navigate = useNavigate();
+
+  const [lng, setLang] = useContext(I18nContext)
 
   return (
     <>
@@ -110,7 +140,7 @@ const Header = () => {
               <IconButton
                 size="large"
                 onClick={handleClick}
-                // onClick={(e)=>handleClick(e)}
+              // onClick={(e)=>handleClick(e)}
               >
                 <MenuIcon />
               </IconButton>
@@ -136,8 +166,8 @@ const Header = () => {
                 ))}
                 {languages.map((lang) => {
                   return (
-                    <MenuItem key={lang} onClick={() => {}}>
-                      <Typography textAlign="center">{lang}</Typography>
+                    <MenuItem key={lang} onClick={() => setLang(lang.toLowerCase())}>
+                      <Typography sx={{ color: lng === lang.toLowerCase() ? 'red' : 'black' }} textAlign="center">{lang}</Typography>
                     </MenuItem>
                   );
                 })}
@@ -170,7 +200,7 @@ const Header = () => {
           >
             {languages.map((lang) => {
               return (
-                <Typography key={lang} fontWeight="bold">
+                <Typography sx={{ color: lng === lang.toLowerCase() ? 'red' : 'black' }} onClick={() => setLang(lang.toLowerCase())} key={lang} fontWeight="bold">
                   {lang}
                 </Typography>
               );

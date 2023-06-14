@@ -1,0 +1,12 @@
+{
+    "home": {
+        "welcome": "Welcome to React and react-i18next"
+    },
+    "blog": {
+        "newStuffs": "New stuffs"
+    },
+    "nav": {
+        "about": "About",
+        "technics": "Technics"
+    }
+}

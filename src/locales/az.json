@@ -1,0 +1,12 @@
+{
+    "home": {
+        "welcome": "Eve xhos gelmisiniz"
+    },
+    "blog": {
+        "newStuffs": "Yenilikler"
+    },
+    "nav": {
+        "about": "Haqqimizda",
+        "technics": "Texnikalar"
+    }
+}

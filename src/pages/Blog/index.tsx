@@ -1,67 +1,22 @@
+import { Grid, Pagination, Paper, Stack, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import PageContainer from "../../components/PageContainer";
-import { Grid, Pagination, Paper, Stack, Typography } from "@mui/material";
 import "../../index.css";
+import { news } from "./data.ts";
+// translation
 
-const news = [
-  {
-    id: 1,
-    img: "blogimg1.png",
-    title: "Xəbərin adı",
-    date: "12.04.2022",
-  },
-  {
-    id: 2,
-    img: "blogimg2.png",
-    title: "Xəbərin adı",
-    date: "12.04.2022",
-  },
-  {
-    id: 3,
-    img: "blogimg3.png",
-    title: "Xəbərin adı",
-    date: "12.04.2022",
-  },
-  {
-    id: 4,
-    img: "blogimg4.png",
-    title: "Xəbərin adı",
-    date: "12.04.2022",
-  },
-  {
-    id: 5,
-    img: "blogimg1.png",
-    title: "Xəbərin adı",
-    date: "12.04.2022",
-  },
-  {
-    id: 6,
-    img: "blogimg2.png",
-    title: "Xəbərin adı",
-    date: "12.04.2022",
-  },
-  {
-    id: 7,
-    img: "blogimg3.png",
-    title: "Xəbərin adı",
-    date: "12.04.2022",
-  },
-  {
-    id: 8,
-    img: "blogimg4.png",
-    title: "Xəbərin adı",
-    date: "12.04.2022",
-  },
-];
+import { useTranslation } from "react-i18next";
+
 
 const BlogPage = ({ }) => {
+  const { t } = useTranslation();
   return (
     <PageContainer>
       <Container>
         <Grid container my={7} spacing={2}>
           <Grid item sx={{ marginTop: 10 }} xs={10} md={5}>
             <Typography component="h1" fontWeight="bold" variant="h3">
-              Yeniliklər
+              {t('home.welcome')}
             </Typography>
             <Typography sx={{ marginTop: 2 }}>
               Lorem Ipsum is simply dummy text of the printing and typesetting

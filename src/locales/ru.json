@@ -1,0 +1,12 @@
+{
+    "home": {
+        "welcome": "довro pojalavat"
+    },
+    "blog": {
+        "newStuffs": "novinki"
+    },
+    "nav": {
+        "about": "O HAC",
+        "technics": "mexHika"
+    }
+}
